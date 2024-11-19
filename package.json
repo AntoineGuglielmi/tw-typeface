@@ -1,9 +1,9 @@
 {
   "name": "@antoineguglielmi/tw-typeface-test",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A typeface customization",
   "main": "dist/typeface.js",
-  "types": "dist/typeface.d.ts",
+  "types": "dist/tailwindcss.d.ts",
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
