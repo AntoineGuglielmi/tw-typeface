@@ -1,13 +1,12 @@
 {
   "name": "@antoineguglielmi/tw-typeface",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A typeface customization",
   "main": "dist/typeface.js",
-  "types": "dist/tailwindcss.d.ts",
+  "types": "dist/typeface.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build",
-    "postbuild": "cp src/tailwindcss.d.ts dist/"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "tailwindcss",
