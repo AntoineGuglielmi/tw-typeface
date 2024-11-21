@@ -1,6 +1,6 @@
 {
   "name": "@antoineguglielmi/tw-typeface",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A typeface customization",
   "main": "dist/typeface.js",
   "types": "dist/typeface.d.ts",

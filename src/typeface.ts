@@ -34,13 +34,21 @@ export const typeface = (
 ) => {
   return plugin(
     function ({ addUtilities, theme, e }) {
+      // Get the typefaces from the theme
       const typefaces = theme(configKey) as TypefaceSets // Assure-toi que TypeScript valide l'objet
+
+      // Get the spacing from the theme
       const spacing = theme('spacing')
 
+      // Initialize the new utilities
       const newUtilities: Record<string, any> = {}
 
+      // Loop through the typefaces
       Object.keys(typefaces).forEach((key) => {
+        // Get the styles
         const styles = typefaces[key]
+
+        // Get the extends and other styles
         const _extends = styles.extends ? typefaces[styles.extends] : {}
         const fontFamily = styles.fontFamily
           ? { fontFamily: styles.fontFamily }
@@ -57,6 +65,8 @@ export const typeface = (
         const fontWeight = styles.fontWeight
           ? { fontWeight: styles.fontWeight }
           : {}
+
+        // Merge the styles overridding the extends
         const newUtility = {
           ..._extends,
           ...fontFamily,
@@ -66,9 +76,14 @@ export const typeface = (
           ...fontWeight,
         }
 
+        // Update the theme object so that it can be extended
+        theme(configKey)![key] = newUtility
+
+        // Add the new utility
         newUtilities[`.${e(`${configKey}-${key}`)}`] = newUtility
       })
 
+      // Add the new utilities
       addUtilities(newUtilities)
     },
     {
@@ -92,5 +107,7 @@ export const typeface = (
  * @returns The typeface sets
  */
 export const defineTypeface = (typefaceSets: TypefaceSets): TypefaceSets => {
+  // Return the typeface sets as is.
+  // This function is only used to help autocompletion in the editor
   return typefaceSets
 }
